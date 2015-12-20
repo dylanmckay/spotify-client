@@ -2,14 +2,14 @@ require_relative 'track'
 require_relative 'album'
 
 class Query
-  def initialize(tracks)
-    @tracks = tracks
+  def initialize(albums)
+    @albums = albums
   end
 
   def self.from_json(data)
     track_datum = data['tracks']['items']
 
-    tracks = track_datum.map do |track_data|
+    albums = track_datum.map do |track_data|
       track = Track.from_json(track_data)
       album = Album.from_json(track_data['album'])
 
@@ -17,6 +17,6 @@ class Query
       album
     end
 
-    Query.new(tracks)
+    Query.new(albums)
   end
 end
