@@ -4,7 +4,7 @@ class Track
   def initialize(
     name,
     track_number:,
-    popularity: 0.5
+    popularity:
   )
     @name = name
     @track_number = track_number

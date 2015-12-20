@@ -4,9 +4,8 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-BASE_API_URI = "http://ws.spotify.com"
-SEARCH_API_URI = "#{BASE_API_URI}/search/1"
-SEARCH_TRACK_API_URI = "#{SEARCH_API_URI}/track.json"
+BASE_API_URI = "https://api.spotify.com/v1"
+SEARCH_API_URI = "#{BASE_API_URI}/search"
 
 class Spotify
   def search_track(query)
@@ -21,6 +20,10 @@ class Spotify
   private
 
   def query_track_uri(query)
-    URI.parse("#{SEARCH_TRACK_API_URI}?q=#{query}")
+    query_uri(query, 'track')
+  end
+
+  def query_uri(query, type)
+    URI.parse("#{SEARCH_API_URI}?q=#{query}&type=#{type}")
   end
 end

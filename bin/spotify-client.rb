@@ -13,3 +13,4 @@ term = DEFAULT_SEARCH_TERM if term.strip.empty?
 
 query = spotify.search_track(term)
 
+puts query.inspect
