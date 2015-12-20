@@ -13,4 +13,7 @@ term = DEFAULT_SEARCH_TERM if term.strip.empty?
 
 query = spotify.search_track(term)
 
-puts query.run.inspect
+query.each do |results|
+  puts results.inspect
+end
+
