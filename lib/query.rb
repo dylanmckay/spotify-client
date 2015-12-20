@@ -31,8 +31,11 @@ class Query
     json_data = JSON.parse(json_text)
 
     return nil if json_data['tracks'].empty?
-
     @offset += json_data['tracks'].size
+
+    json_data['tracks']['items'].select! do |track|
+      track['name'].downcase.include?(@term.downcase)
+    end
 
     Results.from_json(json_data)
   end
