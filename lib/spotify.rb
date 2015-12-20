@@ -1,4 +1,4 @@
-require_relative 'query'
+require_relative 'results'
 
 require 'net/http'
 require 'uri'
@@ -14,7 +14,7 @@ class Spotify
     json_text = response.body
     json_data = JSON.parse(json_text)
 
-    Query.from_json(json_data)
+    Results.from_json(json_data)
   end
 
   private

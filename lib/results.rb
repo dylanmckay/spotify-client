@@ -1,7 +1,7 @@
 require_relative 'track'
 require_relative 'album'
 
-class Query
+class Results
   def initialize(albums)
     @albums = albums
   end
@@ -17,6 +17,6 @@ class Query
       album
     end
 
-    Query.new(albums)
+    Results.new(albums)
   end
 end
