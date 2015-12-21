@@ -2,6 +2,10 @@ require_relative 'track'
 require_relative 'album'
 
 class Results
+  include Enumerable
+
+  attr_reader :albums
+
   def initialize(albums)
     @albums = albums
   end
@@ -18,5 +22,13 @@ class Results
     end
 
     Results.new(albums)
+  end
+
+  def each(&block)
+    @albums.each(&block)
+  end
+
+  def +(results)
+    Results.new(@albums + results.albums)
   end
 end
