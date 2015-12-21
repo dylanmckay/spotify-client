@@ -26,7 +26,7 @@ class Naive
   def possible_tracks
     queried_tracks.select do |track|
      track.duration_seconds < remaining_duration &&
-       !@tracks.any? { |t| t.name == track.name }
+       !@tracks.any? { |t| t.name.downcase == track.name.downcase }
     end.sort_by { |track| -track.duration_seconds }
   end
 

@@ -15,7 +15,7 @@ term = DEFAULT_SEARCH_TERM if term.strip.empty?
 
 query = spotify.search_track(term)
 
-results = query.take(2).inject { |a,result| a + result }
+results = query.take(5).inject { |a,result| a + result }
 duration = 60.0 * 60.0
 
 algorithm = Naive
